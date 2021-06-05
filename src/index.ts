@@ -54,4 +54,22 @@ export default class Tinkoff {
             return this.prepareArray(this.filterArray(bonds, currency));
         }
     }
+
+    public async etfs(currency?: string) {
+        const etfs = (await this.API.etfs()).instruments;
+        if (!currency) {
+            return this.prepareArray(etfs);
+        } else {
+            return this.prepareArray(this.filterArray(etfs, currency));
+        }
+    }
+
+    public async currencies(currency?: string) {
+        const currencies = (await this.API.currencies()).instruments;
+        if (!currency) {
+            return this.prepareArray(currencies);
+        } else {
+            return this.prepareArray(this.filterArray(currencies, currency));
+        }
+    }
 }

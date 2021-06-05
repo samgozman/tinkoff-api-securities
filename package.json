@@ -1,7 +1,7 @@
 {
     "name": "tinkoff-api-securities",
     "version": "1.0.0",
-    "description": "Получает список торгуемых на Tinkoff инструментов и обновляет его раз в сутки для ускорения доступа к данным.",
+    "description": "Получает список торгуемых на Tinkoff акций, облигаций, ETF и валют.",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "scripts": {

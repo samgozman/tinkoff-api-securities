@@ -25,3 +25,15 @@ test('Get Tinkoff bonds', async () => {
     expect(bonds.length).toBeGreaterThan(100);
     expect(typeof bonds[5]).toBe('string');
 });
+
+test('Get Tinkoff etfs', async () => {
+    const etfs = await API.etfs();
+    expect(etfs.length).toBeGreaterThan(30);
+    expect(typeof etfs[10]).toBe('string');
+});
+
+test('Get Tinkoff currencies', async () => {
+    const currencies = await API.currencies();
+    expect(currencies.length).toBeGreaterThan(1);
+    expect(typeof currencies[1]).toBe('string');
+});
