@@ -6,7 +6,6 @@
     "types": "lib/index.d.ts",
     "scripts": {
         "test": "jest --config jestconfig.json",
-        "dev": "ts-node -r dotenv/config src/index.ts dotenv_config_path=config/settings.env",
         "build": "tsc --build",
         "prepare": "npm run build"
     },

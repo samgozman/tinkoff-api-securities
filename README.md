@@ -29,3 +29,11 @@ const main = async () => {
 
 main();
 ```
+
+## Возвращаемые значения
+
+```javascript
+const stocks = await API.stocks('USD');
+console.log(stocks[9].ticker, stocks[9].name);
+// CAT Caterpillar
+```

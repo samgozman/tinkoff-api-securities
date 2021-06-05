@@ -17,23 +17,23 @@ beforeAll(() => {
 test('Get Tinkoff stocks', async () => {
     const stocks = await API.stocks('USD');
     expect(stocks.length).toBeGreaterThan(100);
-    expect(typeof stocks[10]).toBe('string');
+    expect(typeof stocks[10].ticker).toBe('string');
 });
 
 test('Get Tinkoff bonds', async () => {
     const bonds = await API.bonds('RUB');
     expect(bonds.length).toBeGreaterThan(100);
-    expect(typeof bonds[5]).toBe('string');
+    expect(typeof bonds[5].ticker).toBe('string');
 });
 
 test('Get Tinkoff etfs', async () => {
     const etfs = await API.etfs();
     expect(etfs.length).toBeGreaterThan(30);
-    expect(typeof etfs[10]).toBe('string');
+    expect(typeof etfs[10].ticker).toBe('string');
 });
 
 test('Get Tinkoff currencies', async () => {
     const currencies = await API.currencies();
     expect(currencies.length).toBeGreaterThan(1);
-    expect(typeof currencies[1]).toBe('string');
+    expect(typeof currencies[1].ticker).toBe('string');
 });

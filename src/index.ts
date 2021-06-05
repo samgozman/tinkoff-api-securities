@@ -1,5 +1,10 @@
 import OpenAPI, { MarketInstrument } from '@tinkoff/invest-openapi-js-sdk';
 
+interface Quote {
+    ticker: string;
+    name: string;
+}
+
 export default class Tinkoff {
     protected API: OpenAPI;
 
@@ -29,10 +34,13 @@ export default class Tinkoff {
     }
 
     // Convert array of objects to array of strings (tickers)
-    protected prepareArray(arr: MarketInstrument[]): Array<string> {
+    protected prepareArray(arr: MarketInstrument[]): Array<Quote> {
         const clean = [];
         for (const el of arr) {
-            clean.push(el.ticker);
+            clean.push({
+                ticker: el.ticker,
+                name: el.name,
+            });
         }
         return clean;
     }
@@ -40,7 +48,7 @@ export default class Tinkoff {
     protected filter(
         arr: MarketInstrument[],
         currency: string | undefined
-    ): Array<string> {
+    ): Array<Quote> {
         if (!currency) {
             return this.prepareArray(arr);
         } else {
