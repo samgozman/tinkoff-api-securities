@@ -37,39 +37,34 @@ export default class Tinkoff {
         return clean;
     }
 
+    protected filter(
+        arr: MarketInstrument[],
+        currency: string | undefined
+    ): Array<string> {
+        if (!currency) {
+            return this.prepareArray(arr);
+        } else {
+            return this.prepareArray(this.filterArray(arr, currency));
+        }
+    }
+
     public async stocks(currency?: string) {
         const stocks = (await this.API.stocks()).instruments;
-        if (!currency) {
-            return this.prepareArray(stocks);
-        } else {
-            return this.prepareArray(this.filterArray(stocks, currency));
-        }
+        return this.filter(stocks, currency);
     }
 
     public async bonds(currency?: string) {
         const bonds = (await this.API.bonds()).instruments;
-        if (!currency) {
-            return this.prepareArray(bonds);
-        } else {
-            return this.prepareArray(this.filterArray(bonds, currency));
-        }
+        return this.filter(bonds, currency);
     }
 
     public async etfs(currency?: string) {
         const etfs = (await this.API.etfs()).instruments;
-        if (!currency) {
-            return this.prepareArray(etfs);
-        } else {
-            return this.prepareArray(this.filterArray(etfs, currency));
-        }
+        return this.filter(etfs, currency);
     }
 
     public async currencies(currency?: string) {
         const currencies = (await this.API.currencies()).instruments;
-        if (!currency) {
-            return this.prepareArray(currencies);
-        } else {
-            return this.prepareArray(this.filterArray(currencies, currency));
-        }
+        return this.filter(currencies, currency);
     }
 }
