@@ -37,12 +37,21 @@ class Tinkoff {
         return clean;
     }
 
-    public async stock(currency?: string) {
+    public async stocks(currency?: string) {
         const stocks = (await this.API.stocks()).instruments;
         if (!currency) {
             return this.prepareArray(stocks);
         } else {
             return this.prepareArray(this.filterArray(stocks, currency));
+        }
+    }
+
+    public async bonds(currency?: string) {
+        const bonds = (await this.API.bonds()).instruments;
+        if (!currency) {
+            return this.prepareArray(bonds);
+        } else {
+            return this.prepareArray(this.filterArray(bonds, currency));
         }
     }
 }
@@ -51,7 +60,8 @@ class Tinkoff {
 const main = async () => {
     const secretToken: string = process.env['SANDBOX_TOKEN']!;
     const tinkoff = new Tinkoff(secretToken);
-    console.log(await tinkoff.stock('USD'));
+    // console.log(await tinkoff.stocks('USD'));
+    console.log(await tinkoff.bonds('USD'));
 };
 
 main();
