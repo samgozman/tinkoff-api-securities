@@ -1,6 +1,6 @@
 import OpenAPI, { MarketInstrument } from '@tinkoff/invest-openapi-js-sdk';
 
-class Tinkoff {
+export default class Tinkoff {
     protected API: OpenAPI;
 
     constructor(public secretToken: string) {
@@ -55,13 +55,3 @@ class Tinkoff {
         }
     }
 }
-
-// Test
-const main = async () => {
-    const secretToken: string = process.env['SANDBOX_TOKEN']!;
-    const tinkoff = new Tinkoff(secretToken);
-    // console.log(await tinkoff.stocks('USD'));
-    console.log(await tinkoff.bonds('USD'));
-};
-
-main();
