@@ -22,7 +22,8 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   node-version: ${{ matrix.node }}
-              env: ${{ secrets.SANDBOX_TOKEN }}
             - run: npm install
             - run: npm build
             - run: npm test
+              env:
+                  SANDBOX_TOKEN: ${{ secrets.SANDBOX_TOKEN }}
