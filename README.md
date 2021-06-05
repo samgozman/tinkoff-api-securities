@@ -1,5 +1,7 @@
 # tinkoff-api-securities
 
+[![build](https://github.com/samgozman/tinkoff-api-securities/actions/workflows/node.js.yml/badge.svg)](https://github.com/samgozman/tinkoff-api-securities/actions/workflows/node.js.yml)
+
 Получает список торгуемых на Tinkoff инструментов.
 
 ## Установка
