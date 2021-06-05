@@ -7,9 +7,21 @@ dotenv.config({
     path: path.join(__dirname + '../../../' + 'config/settings.env'),
 });
 
-test('Get Tinkoff stocks', async () => {
+// Create API instance
+let API: Tinkoff;
+beforeAll(() => {
     const secretToken: string = process.env['SANDBOX_TOKEN']!;
-    const tinkoff = new Tinkoff(secretToken);
-    const stocks = await tinkoff.stocks('USD');
+    API = new Tinkoff(secretToken);
+});
+
+test('Get Tinkoff stocks', async () => {
+    const stocks = await API.stocks('USD');
     expect(stocks.length).toBeGreaterThan(100);
+    expect(typeof stocks[10]).toBe('string');
+});
+
+test('Get Tinkoff bonds', async () => {
+    const bonds = await API.bonds('RUB');
+    expect(bonds.length).toBeGreaterThan(100);
+    expect(typeof bonds[5]).toBe('string');
 });
