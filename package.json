@@ -2,17 +2,23 @@
     "name": "tinkoff-api-securities",
     "version": "1.0.0",
     "description": "Получает список торгуемых на Tinkoff инструментов и обновляет его раз в сутки для ускорения доступа к данным.",
-    "main": "index.js",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
     "scripts": {
         "dev": "ts-node -r dotenv/config src/index.ts dotenv_config_path=config/settings.env",
-        "build": "tsc --build"
+        "build": "tsc --build",
+        "prepare": "npm run build"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/samgozman/tinkoff-api-securities.git"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "tinkoff",
+        "stocks",
+        "financial"
+    ],
+    "author": "Sam Gozman <sam@gozman.space>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/samgozman/tinkoff-api-securities/issues"
