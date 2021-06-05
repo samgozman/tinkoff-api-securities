@@ -15,7 +15,7 @@ npm install tinkoff-api-securities
 ## Пример
 
 ```javascript
-import Tinkoff from 'tinkoff-api-securities';
+import { Tinkoff } from 'tinkoff-api-securities';
 
 const main = async () => {
     const API = new Tinkoff('Tinkoff Invest API SandBox token');

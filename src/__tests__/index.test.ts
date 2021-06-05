@@ -1,4 +1,4 @@
-import Tinkoff from '../index';
+import { Tinkoff } from '../index';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 

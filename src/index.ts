@@ -76,3 +76,5 @@ export default class Tinkoff {
         return this.filter(currencies, currency);
     }
 }
+
+export { Tinkoff };
