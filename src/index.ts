@@ -6,6 +6,8 @@ interface Quote {
 }
 
 export class Tinkoff {
+    protected API: OpenAPI;
+
     constructor(public secretToken: string) {
         this.API = new OpenAPI({
             apiURL: 'https://api-invest.tinkoff.ru/openapi/sandbox',
@@ -35,8 +37,6 @@ export class Tinkoff {
         const currencies = (await this.API.currencies()).instruments;
         return this.filter(currencies, currency);
     }
-
-    protected API: OpenAPI;
 
     // Clear sandbox before use
     protected async init(): Promise<void> {
