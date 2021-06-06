@@ -1,6 +1,11 @@
 # tinkoff-api-securities
 
 [![build](https://github.com/samgozman/tinkoff-api-securities/actions/workflows/node.js.yml/badge.svg)](https://github.com/samgozman/tinkoff-api-securities/actions/workflows/node.js.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8e29e7423e70477e82c5a4de6836896a)](https://www.codacy.com/gh/samgozman/tinkoff-api-securities/dashboard?utm_source=github.com&utm_medium=referral&utm_content=samgozman/tinkoff-api-securities&utm_campaign=Badge_Grade)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=samgozman_tinkoff-api-securities&metric=alert_status)](https://sonarcloud.io/dashboard?id=samgozman_tinkoff-api-securities)
+[![npm](https://img.shields.io/npm/v/tinkoff-api-securities)](https://www.npmjs.com/package/tinkoff-api-securities)
+![npm bundle size](https://img.shields.io/bundlephobia/min/tinkoff-api-securities)
+![NPM](https://img.shields.io/npm/l/tinkoff-api-securities)
 
 Получает список торгуемых на Tinkoff инструментов.
 
