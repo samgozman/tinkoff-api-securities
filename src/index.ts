@@ -5,9 +5,7 @@ interface Quote {
     name: string;
 }
 
-export default class Tinkoff {
-    protected API: OpenAPI;
-
+export class Tinkoff {
     constructor(public secretToken: string) {
         this.API = new OpenAPI({
             apiURL: 'https://api-invest.tinkoff.ru/openapi/sandbox',
@@ -18,8 +16,30 @@ export default class Tinkoff {
         this.init();
     }
 
+    public async stocks(currency?: string): Promise<Array<Quote>> {
+        const stocks = (await this.API.stocks()).instruments;
+        return this.filter(stocks, currency);
+    }
+
+    public async bonds(currency?: string): Promise<Array<Quote>> {
+        const bonds = (await this.API.bonds()).instruments;
+        return this.filter(bonds, currency);
+    }
+
+    public async etfs(currency?: string): Promise<Array<Quote>> {
+        const etfs = (await this.API.etfs()).instruments;
+        return this.filter(etfs, currency);
+    }
+
+    public async currencies(currency?: string): Promise<Array<Quote>> {
+        const currencies = (await this.API.currencies()).instruments;
+        return this.filter(currencies, currency);
+    }
+
+    protected API: OpenAPI;
+
     // Clear sandbox before use
-    protected async init() {
+    protected async init(): Promise<void> {
         await this.API.sandboxClear();
     }
 
@@ -55,26 +75,4 @@ export default class Tinkoff {
             return this.prepareArray(this.filterArray(arr, currency));
         }
     }
-
-    public async stocks(currency?: string) {
-        const stocks = (await this.API.stocks()).instruments;
-        return this.filter(stocks, currency);
-    }
-
-    public async bonds(currency?: string) {
-        const bonds = (await this.API.bonds()).instruments;
-        return this.filter(bonds, currency);
-    }
-
-    public async etfs(currency?: string) {
-        const etfs = (await this.API.etfs()).instruments;
-        return this.filter(etfs, currency);
-    }
-
-    public async currencies(currency?: string) {
-        const currencies = (await this.API.currencies()).instruments;
-        return this.filter(currencies, currency);
-    }
 }
-
-export { Tinkoff };
