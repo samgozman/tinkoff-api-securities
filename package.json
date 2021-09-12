@@ -1,6 +1,6 @@
 {
     "name": "tinkoff-api-securities",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Получает список торгуемых на Tinkoff акций, облигаций, ETF и валют.",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
